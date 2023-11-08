@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from "./components/layout/Layout";
 import Home from './components/home/Home';
-import Resume from './components/resume/Resume';
+import Experience from './components/resume/Experience';
+import BasicInfo from './components/resume/basic-info/BasicInfo';
 
 function App() {
 
@@ -10,12 +11,12 @@ function App() {
     <Routes>
       <Route path = "/" element = {<Layout />} >
         <Route index element = {<Home />} />
-        <Route path = '/resume' element = {<Resume />} />
-        
+        <Route path = "/resume/*" element = {<Experience />}/>
+        <Route path = "/resume/basic-info" element = {<BasicInfo />} />
       </Route>
     </Routes>
    </BrowserRouter>
-  )
+  ) 
 }
 
-export default App
+export default App;

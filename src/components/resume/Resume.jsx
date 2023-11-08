@@ -1,18 +1,18 @@
 import Top from "./Top";
 import Experience from "./Experience";
 import JobStatus from "./JobStatus";
-import { useState } from "react";
-import BasicInfo from "./BasicInfo";
+import { Container } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 
-const Resume = () => {
+const Resume = ({ children }) => {
 
-  const [jobStatus, setJobStatus] = useState(false);
 
   return (
   <>
     <Top  />
-    <Experience setJobStatus = {setJobStatus}/>
-    {jobStatus &&  <JobStatus />}
+    <Container className = "mt-4 bgColorWhite p-3">
+      { children }
+    </Container>
   </>
   )
 }

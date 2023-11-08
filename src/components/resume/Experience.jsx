@@ -1,9 +1,14 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
+import { useState } from "react";
+import JobStatus from "./JobStatus";
+import Resume from "./Resume";
+const Experience = () => {
 
-const Experience = ({ setJobStatus }) => {
+  const [jobStatus, setJobStatus] = useState(false);
+
   return (
-    <Container className = "mt-4 bgColorWhite p-3">
+    <Resume>
       <p className = "text-center text-muted pt-3">وضعیت شغلی خود را مشخص کنید</p>
       <Row>
         <Col md = {4}></Col>
@@ -25,7 +30,8 @@ const Experience = ({ setJobStatus }) => {
         </Col>
         <Col md = {4}></Col>
       </Row>
-    </Container>
+      {jobStatus &&  <JobStatus />}
+    </Resume>
   )
 }
 
