@@ -8,7 +8,7 @@ const Resume = ({ children }) => {
   return (
   <>
     <Top  />
-    <Container className = "mt-4 bgColorWhite p-3">
+    <Container className = "mt-4 bgColorWhite p-3 myBoxShadow">
       { children }
     </Container>
     <NextStep />
