@@ -1,9 +1,17 @@
+import { Col, ProgressBar, Row } from "react-bootstrap";
 import Resume from "../Resume";
 
 const BasicInfo = () => {
   return (
     <Resume>
-      <h1>Basic Info</h1>
+      <Row>
+        <Col md = {8}>
+          <h5 className = "text-muted p-2">نام رزومه</h5>
+          <span className = "text-muted fs-14 p-2">درصد تکمیل 15</span>
+          <ProgressBar className = "mt-2" variant = "danger" now = {15} />
+        </Col>
+        <Col md = {4}></Col>
+      </Row>
     </Resume>
   )
 }
