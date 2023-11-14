@@ -3038,3 +3038,4 @@ const iranCities = [
       "longitude":54.43421380
     }
   ]
+  export default iranCities;
