@@ -12,7 +12,7 @@ const informationSlice = createSlice({
     initialState,
     reducers:{
         setBasicInfo: (state, action) => {
-            state.basicInformation = action.payload;
+            state.basicInformation.push(action.payload);
         },
         setEducation: (state, action) => {
             state.education = action.payload;

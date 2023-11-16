@@ -2,15 +2,27 @@ import { Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import iranProvinces from "../../../utils/provinces.js";
 import iranCities from "../../../utils/cities.js";
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectInformation, setBasicInfo } from "../../../features/information/informationSlice.js";
 const FormInfo = () => {
+
+  const information = useSelector(selectInformation);
+  const dispatch = useDispatch();
+
+  const handleChange  = (event) => {
+    dispatch(setBasicInfo({ [event.target.name]: event.target.value} ));
+  }
   return (  
     <Row>
         <Col md = {7}>
           <Form>
-            <Form.Group className="mb-3" controlId="ResName">
+            <Form.Group className="mb-3" controlId="resName">
                 <Form.Label className = "text-muted p-2">نام رزومه</Form.Label>
-                <Form.Control placeholder="برای مثال : رزومه معماری" />
+                <Form.Control
+                  type = "text"
+                  name = "resName"
+                  onChange = {handleChange}
+                  placeholder="برای مثال : رزومه معماری" />
             </Form.Group>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="name">
@@ -18,7 +30,11 @@ const FormInfo = () => {
                     نام
                     <span className = "text-danger fw-bold fs-3"> * </span>
                   </Form.Label>
-                  <Form.Control type="text" placeholder = "نام" />
+                  <Form.Control 
+                    type="text"
+                    name = "firstName"
+                    onChange = {handleChange} 
+                    placeholder = "نام" />
                 </Form.Group>
                 <Form.Group as={Col} controlId="family">
                 <Form.Label className = "text-muted ms-2"> 
@@ -81,7 +97,7 @@ const FormInfo = () => {
                     {
                       iranProvinces.map((iranProvince) => {
                         return(
-                          <option className = "text-muted" value = {iranProvince.id}>{iranProvince.name}</option>
+                          <option key = {iranProvince.id} className = "text-muted" value = {iranProvince.id}>{iranProvince.name}</option>
                         )
                       })
                     }
@@ -96,7 +112,12 @@ const FormInfo = () => {
                     {
                       iranCities.map((iranCities) => {
                         return(
-                          <option className = "text-muted" value = {iranCities.id}>{iranCities.name}</option>
+                          <option 
+                            key = {iranCities.id} 
+                            className = "text-muted" 
+                            value = {iranCities.id}>
+                            {iranCities.name}
+                          </option>
                         )
                       })
                     }
