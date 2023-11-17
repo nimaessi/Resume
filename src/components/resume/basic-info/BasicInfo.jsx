@@ -1,13 +1,11 @@
 import { Col, ProgressBar, Row } from "react-bootstrap";
 import Resume from "../Resume";
 import * as Icon from "react-bootstrap-icons";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import FormInfo from "./FormInfo";
 
 const BasicInfo = () => {
   return (
-    <Resume>
+    <Resume nextPath = "/" back = "/resume">
 
       <Row>
         <Col md = {7}>
