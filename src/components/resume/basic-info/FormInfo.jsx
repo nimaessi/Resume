@@ -33,7 +33,7 @@ const FormInfo = () => {
                   <Form.Control 
                     type="text"
                     name = "firstName"
-                    maxLength = {40}
+                    maxLength = {30}
                     onChange = {handleChange} 
                     placeholder = "نام" />
                 </Form.Group>

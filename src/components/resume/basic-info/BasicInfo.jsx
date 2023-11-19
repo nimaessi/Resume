@@ -6,7 +6,6 @@ import FormInfo from "./FormInfo";
 const BasicInfo = () => {
   return (
     <Resume nextPath = "/" back = "/resume">
-
       <Row>
         <Col md = {7}>
           <h5 className = "text-muted p-2">نام رزومه</h5>
@@ -19,9 +18,7 @@ const BasicInfo = () => {
         </Col>
         <Col md = {5}></Col>
       </Row>
-
       <FormInfo />
-      
     </Resume>
   )
 }
