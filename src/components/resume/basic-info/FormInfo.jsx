@@ -4,11 +4,22 @@ import iranProvinces from "../../../utils/provinces.js";
 import iranCities from "../../../utils/cities.js";
 import { useDispatch } from "react-redux";
 import { setBasicInfo } from "../../../features/information/informationSlice.js";
+import DatePicker from "react-multi-date-picker";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+
 const FormInfo = () => {
 
   const dispatch = useDispatch();
+
   const handleChange = (event) => {
-    dispatch(setBasicInfo({field : event.target.name, value: event.target.value }));
+    if(!event.target){
+      const date = new Date(event);
+      //convert to persian date => date.toLocaleDateString('fa-IR');
+      dispatch(setBasicInfo({field: 'birthday', value: date.toLocaleDateString('fa-IR')}));
+    } else{
+      dispatch(setBasicInfo({field : event.target.name, value: event.target.value }));
+    }
   }
 
   return (  
@@ -158,6 +169,31 @@ const FormInfo = () => {
                       })
                     }
                   </Form.Select>
+                </Form.Group>
+              </Row>
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="name">
+                  <Form.Label className = "text-muted ms-2">
+                    حقوق در خواستی
+                  </Form.Label>
+                  <Form.Control 
+                    type = "number"
+                    name = "salary"
+                    onChange = {handleChange} 
+                    placeholder = "حقوق در خواستی" />
+                </Form.Group>
+                <Form.Group as={Col} controlId="birthday">
+                  <Form.Label className = "text-muted ms-2 me-3">
+                    تاریخ تولد 
+                  </Form.Label>
+                  <br/>
+                  <DatePicker
+                    style = {{height : '35px'}}
+                    calendar = {persian}
+                    locale = {persian_fa}
+                    onChange = {handleChange}
+                    calendarPosition = "bottom-right"
+                  />
                 </Form.Group>
               </Row>
               <Form.Group className="mb-3" controlId="Address">

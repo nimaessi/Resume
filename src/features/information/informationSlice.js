@@ -10,7 +10,9 @@ const initialState = {
     maritalStatus: "",
     province: "",
     city: "",
-    address: ""
+    address: "",
+    salary: 0,
+    birthday: ""
    
 }
 const informationSlice = createSlice({
@@ -31,6 +33,8 @@ const informationSlice = createSlice({
             state.province = "",
             state.city = "",
             state.address = ""
+            state.salary = 0,
+            state.birthday = ""
 
         }
     }
