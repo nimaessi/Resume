@@ -3,6 +3,7 @@ import Layout from "./components/layout/Layout";
 import Home from './components/home/Home';
 import Experience from './components/resume/Experience';
 import BasicInfo from './components/resume/basic-info/BasicInfo';
+import Steps from './components/resume/steps/Steps';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route index element = {<Home />} />
         <Route path = "/resume/*" element = {<Experience />}/>
         <Route path = "/resume/basic-info" element = {<BasicInfo />} />
+        <Route path = "/resume/select-step" element = {<Steps />} />
       </Route>
     </Routes>
    </BrowserRouter>
