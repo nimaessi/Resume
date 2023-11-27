@@ -4,6 +4,7 @@ import Home from './components/home/Home';
 import Experience from './components/resume/Experience';
 import BasicInfo from './components/resume/basic-info/BasicInfo';
 import Steps from './components/resume/steps/Steps';
+import Education from './components/resume/education/Education';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path = "/resume/*" element = {<Experience />}/>
         <Route path = "/resume/basic-info" element = {<BasicInfo />} />
         <Route path = "/resume/select-step" element = {<Steps />} />
+        <Route path = "/resume/education" element = {<Education />} />
       </Route>
     </Routes>
    </BrowserRouter>
