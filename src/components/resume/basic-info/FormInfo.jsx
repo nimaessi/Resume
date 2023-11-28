@@ -2,15 +2,18 @@ import { Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import iranProvinces from "../../../utils/provinces.js";
 import iranCities from "../../../utils/cities.js";
-import { useDispatch } from "react-redux";
-import { setBasicInfo } from "../../../features/information/informationSlice.js";
+import { useDispatch, useSelector } from "react-redux";
+import { selectInformation, setBasicInfo } from "../../../features/information/informationSlice.js";
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+import { useEffect, useState } from "react";
 
 const FormInfo = () => {
 
   const dispatch = useDispatch();
+  const { province } = useSelector(selectInformation);
+  const [cities, setCities] = useState([]);
 
   const handleChange = (event) => {
     if(!event.target){
@@ -21,6 +24,11 @@ const FormInfo = () => {
       dispatch(setBasicInfo({field : event.target.name, value: event.target.value }));
     }
   }
+  useEffect(() => {
+    setCities(() => {
+      return iranCities.filter(item => item.province ===  +province);
+    })
+  },[province])
 
   return (  
     <Row>
@@ -157,13 +165,13 @@ const FormInfo = () => {
                     defaultValue = "none">
                     <option className = "text-muted" value = {0}>شهر خود را انتخاب کنید</option>
                     {
-                      iranCities.map((iranCities) => {
+                      cities.map((item) => {
                         return(
                           <option 
-                            key = {iranCities.id} 
+                            key = {item.id} 
                             className = "text-muted" 
-                            value = {iranCities.id}>
-                            {iranCities.name}
+                            value = {item.id}>
+                            {item.name}
                           </option>
                         )
                       })
