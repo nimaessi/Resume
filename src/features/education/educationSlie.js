@@ -8,7 +8,7 @@ const initialState = {
     average: "",
     start: "",
     end: "",
-    studying: ""
+    studying: false
 }
 const educationSlice = createSlice({
     name: "education",
