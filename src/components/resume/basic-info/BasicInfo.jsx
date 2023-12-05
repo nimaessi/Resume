@@ -6,7 +6,7 @@ import ProgressBar from "../../module/ProgressBar";
 
 const BasicInfo = () => {
   return (
-    <Resume nextPath = "/" back = "/resume">
+    <Resume>
       <Row>
         <Col md = {7}>
           <h5 className = "text-muted p-2">نام رزومه</h5>

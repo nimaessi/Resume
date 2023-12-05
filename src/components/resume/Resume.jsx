@@ -2,7 +2,7 @@ import Top from "./Top";
 import { Container } from "react-bootstrap";
 import NextStep from "../module/NextStep";
 
-const Resume = ({ children ,nextPath ,back, displayBtn = true }) => {
+const Resume = ({ children, displayBtn = true }) => {
 
 
   return (
@@ -11,7 +11,7 @@ const Resume = ({ children ,nextPath ,back, displayBtn = true }) => {
     <Container className = "mt-4 bgColorWhite p-3 myBoxShadow">
       { children }
     </Container>
-    {displayBtn && <NextStep nextPath = {nextPath} back = {back} />}
+    {displayBtn && <NextStep />}
   </>
   )
 }
