@@ -11,10 +11,10 @@ const EduForm = () => {
     const dispatch = useDispatch();
     const { studying } = useSelector(selectEdu);
   
-    const handleChange = (event) => {
-      if(!event.target){
+    const handleChange = (event, name = "") => {
+      if(name === "end" || name === "start"){
         const date = new Date(event);
-        dispatch(setEduInfo({field: 'start', value: date.toLocaleDateString('fa-IR')}));
+        dispatch(setEduInfo({field: name, value: date.toLocaleDateString('fa-IR')}));
       }else if(event.target.name === "studying") {
         dispatch(setEduInfo({field: 'studying', value: event.target.checked }));
       }else{
@@ -87,7 +87,7 @@ const EduForm = () => {
                 <DatePicker
                     style = {{height : '35px'}}
                     name = "start"
-                    onChange = {handleChange}
+                    onChange = {(event) => handleChange(event,"start")}
                     calendar = {persian}
                     locale = {persian_fa}
                     calendarPosition = "bottom-right"/>
@@ -100,7 +100,7 @@ const EduForm = () => {
                         style = {{height : '35px'}}
                         name = "end"
                         calendar = {persian}
-                        onChange = {handleChange}
+                        onChange = {(event) => handleChange(event,"end")}
                         locale = {persian_fa}
                         calendarPosition = "bottom-right"/>
                     </>
