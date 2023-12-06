@@ -42,10 +42,10 @@ const JobForm = () => {
                         calendarPosition = "bottom-right"/>
             </Form.Group>
             <Form.Group as = {Col}>
-                <Form.Label className = "text-muted p-2"> تاریخ شروع </Form.Label>
+                <Form.Label className = "text-muted p-2"> تاریخ پایان </Form.Label>
                 <DatePicker
                     style = {{height : '35px'}}
-                    name = "start"
+                    name = "end"
                     calendar = {persian}
                     locale = {persian_fa}
                     calendarPosition = "bottom-right"/>
