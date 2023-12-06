@@ -17,5 +17,5 @@ const jobSlice = createSlice({
     }
 });
 export default jobSlice.reducer;
-export const { setJobExperience} = informationSlice.actions;
+export const { setJobExperience} = jobSlice.actions;
 export const selectJob = (store) => store.job;

@@ -3,8 +3,15 @@ import Col from 'react-bootstrap/Col';
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
-
+import { useDispatch } from "react-redux";
+import { setJobExperience } from "../../../features/job-experience/jobSlice";
 const JobForm = () => {
+
+    const dispatch = useDispatch();
+
+    const handleChange = (event) => {
+        dispatch(setJobExperience({field : event.target.name, value: event.target.value }));
+    }
   return (
     <Form className = "mt-5">
         <Form.Group className="mb-3">
@@ -12,6 +19,7 @@ const JobForm = () => {
             <Form.Control
                 name = "jobGroup"
                 type = "text"
+                onChange = {handleChange}
                 maxLength = {30}/>
         </Form.Group>
 
@@ -21,6 +29,7 @@ const JobForm = () => {
                 <Form.Control
                     name = "jobTitle"
                     type = "text"
+                    onChange = {handleChange}
                     maxLength = {30}/>
             </Form.Group>
             <Form.Group as = {Col}>
@@ -28,6 +37,7 @@ const JobForm = () => {
                 <Form.Control
                     name = "company"
                     type = "text"
+                    onChange = {handleChange}
                     maxLength = {30}/>
             </Form.Group>
         </Row>
