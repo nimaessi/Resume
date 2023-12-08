@@ -9,8 +9,13 @@ const JobForm = () => {
 
     const dispatch = useDispatch();
 
-    const handleChange = (event) => {
-        dispatch(setJobExperience({field : event.target.name, value: event.target.value }));
+    const handleChange = (event, inputName = "") => {
+        if(!event.target){
+            const date = new Date(event);
+            dispatch(setJobExperience({field: inputName, value: date.toLocaleDateString('fa-IR')}));
+        } else{
+            dispatch(setJobExperience({field : event.target.name, value: event.target.value }));
+        }
     }
   return (
     <Form className = "mt-5">
@@ -33,7 +38,7 @@ const JobForm = () => {
                     maxLength = {30}/>
             </Form.Group>
             <Form.Group as = {Col}>
-                <Form.Label>عنوان شغلی</Form.Label>
+                <Form.Label>نام شرکت</Form.Label>
                 <Form.Control
                     name = "company"
                     type = "text"
@@ -47,6 +52,7 @@ const JobForm = () => {
                     <DatePicker
                         style = {{height : '35px'}}
                         name = "start"
+                        onChange = {(event) => handleChange(event, "start")}
                         calendar = {persian}
                         locale = {persian_fa}
                         calendarPosition = "bottom-right"/>
@@ -57,6 +63,7 @@ const JobForm = () => {
                     style = {{height : '35px'}}
                     name = "end"
                     calendar = {persian}
+                    onChange = {(event) => handleChange(event, "end")}
                     locale = {persian_fa}
                     calendarPosition = "bottom-right"/>
             </Form.Group>
