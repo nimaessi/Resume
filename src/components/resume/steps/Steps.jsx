@@ -26,7 +26,7 @@ const Steps = () => {
                 </Link>
             </ListGroup.Item>
             <ListGroup.Item className = "border border-0 p-2 m-2">
-                <Link className = "nav-link text-muted fs-5" to = "/resume/basic-info">
+                <Link className = "nav-link text-muted fs-5" to = "/resume/skills">
                     <Icon.Wrench className = "me-2" />
                     مهارت ها    
                 </Link>

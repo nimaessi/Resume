@@ -3,6 +3,7 @@ import Resume from "../Resume";
 import Col from 'react-bootstrap/Col';
 import MyProgressBar from "../../module/ProgressBar";
 import EduForm from "./EduForm";
+
 const Education = () => {
   return (
     <Resume>
