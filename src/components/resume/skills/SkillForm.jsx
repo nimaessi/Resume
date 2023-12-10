@@ -1,7 +1,6 @@
 import { Form, Row } from "react-bootstrap";
 import Col from 'react-bootstrap/Col';
 import Stars from "./Stars";
-
 const SkillForm = () => {
   return (
     <Row className = "mb-3">

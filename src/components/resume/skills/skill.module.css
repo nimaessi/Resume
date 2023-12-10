@@ -1,0 +1,7 @@
+.stars {
+    color: #F0F0F0;
+    transition: color 0.5s ease;
+}
+.stars:hover {
+    color: #FFC107;
+}
