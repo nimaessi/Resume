@@ -1,23 +1,30 @@
 import Col from 'react-bootstrap/Col';
-import * as Icon from 'react-bootstrap-icons';
-import styles from "./skill.module.css";
-import Tooltips from './Tooltips';
+import { useState } from 'react';
+import { Rating } from 'react-simple-star-rating';
+
+const tooltipArr = [
+  "ضعیف",
+  "متوسط",
+  "خوب",
+  "عالی",
+]
+
 const Stars = () => {
+
+  const [rating, setRating] = useState(0);
   return (
     <Col>
-        <p className = "text-muted mt-4">میزان مهارت</p>
-        <Tooltips text = "ضعیف">
-          <Icon.StarFill id = "r1" className = {`${styles.stars} me-2 fs-4`} />
-        </Tooltips>
-        <Tooltips text = "متوسط">
-          <Icon.StarFill id = "r2" className = {`${styles.stars} me-2 fs-4`} />
-        </Tooltips>
-        <Tooltips text = "خوب">
-          <Icon.StarFill id = "r3" className = {`${styles.stars} me-2 fs-4`} />
-        </Tooltips>
-        <Tooltips text = "عالی">
-          <Icon.StarFill id = "r4" className = {`${styles.stars} me-2 fs-4`}/>
-        </Tooltips>
+        <p className = "text-muted mt-3">میزان مهارت</p>
+        <Rating
+          initialValue = {rating}
+          rtl
+          transition
+          showTooltip
+          iconsCount = {4}
+          tooltipDefaultText = "میزان مهارت"
+          tooltipArray = {tooltipArr}
+          size = {35}
+          onClick = {(rate) => setRating(rate)} />
     </Col>
   )
 }
