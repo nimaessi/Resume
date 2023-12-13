@@ -1,5 +1,4 @@
 import Col from 'react-bootstrap/Col';
-import { useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 
 const tooltipArr = [
@@ -9,9 +8,8 @@ const tooltipArr = [
   "عالی",
 ]
 
-const Stars = () => {
+const Stars = ({rating, setRating }) => {
 
-  const [rating, setRating] = useState(0);
   return (
     <Col>
         <p className = "text-muted mt-3">میزان مهارت</p>
@@ -24,7 +22,7 @@ const Stars = () => {
           tooltipDefaultText = "میزان مهارت"
           tooltipArray = {tooltipArr}
           size = {35}
-          onClick = {(rate) => setRating(rate)} />
+          onClick = {(rate) => setRating(prevState => ({...prevState, rate}))} />
     </Col>
   )
 }
