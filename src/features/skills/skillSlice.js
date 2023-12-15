@@ -14,4 +14,4 @@ const skillSlice = createSlice({
 });
 export default skillSlice.reducer;
 export const { setSkill} = skillSlice.actions;
-export const selectSkill = (store) => store.skill;
+export const selectSkill = (store) => store.skills;

@@ -4,12 +4,14 @@ import Col from 'react-bootstrap/Col';
 import MyProgressBar from "../../module/ProgressBar";
 import SkillForm from "./SkillForm";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setSkill } from "../../../features/skills/skillSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectSkill, setSkill } from "../../../features/skills/skillSlice";
+import CardSkill from "./CardSkill";
 const Skills = () => {
 
   const [rating, setRating] = useState({skill: "", rate: 0});
   const dispatch = useDispatch();
+  const skills = useSelector(selectSkill);
 
   const submitHandler = () => {
     dispatch(setSkill(rating));
@@ -20,6 +22,9 @@ const Skills = () => {
         <Row>
             <Col md = {7}>
                 <MyProgressBar/>
+                {
+                  skills.skill.map((item, index) => <CardSkill key = {index} skill = {item.skill} rating = {item.rate} />)
+                }
                 <SkillForm rating = {rating} setRating = {setRating} />
                 <div className = "d-grid gap-2 mt-5">
                     <Button onClick = {submitHandler} variant = "outline-success">+ افزودن</Button>
@@ -31,4 +36,4 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default Skills;
