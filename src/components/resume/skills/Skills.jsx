@@ -23,7 +23,12 @@ const Skills = () => {
             <Col md = {7}>
                 <MyProgressBar/>
                 {
-                  skills.skill.map((item, index) => <CardSkill key = {index} skill = {item.skill} rating = {item.rate} />)
+                  skills.skill.map((item, index) => 
+                    <CardSkill 
+                      key = {index} 
+                      cardId = {item.id} 
+                      skill = {item.skill} 
+                      rating = {item.rate} />)
                 }
                 <SkillForm rating = {rating} setRating = {setRating} />
                 <div className = "d-grid gap-2 mt-5">

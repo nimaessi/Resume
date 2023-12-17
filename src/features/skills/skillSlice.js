@@ -8,10 +8,16 @@ const skillSlice = createSlice({
     initialState,
     reducers:{
         setSkill: (state, action) => {
-            state.skill.push({skill: action.payload.skill, rate: action.payload.rate});
+            state.skill.push({
+                id: state.skill.length,
+                skill: action.payload.skill, 
+                rate: action.payload.rate});
+        },
+        removeSkill: (state, action) => {
+           state.skill.splice(state.skill.findIndex((arrow) => arrow.id === action.payload), 1);
         }
     }
 });
 export default skillSlice.reducer;
-export const { setSkill} = skillSlice.actions;
+export const { setSkill, removeSkill} = skillSlice.actions;
 export const selectSkill = (store) => store.skills;
