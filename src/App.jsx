@@ -7,6 +7,7 @@ import Steps from './components/resume/steps/Steps';
 import Education from './components/resume/education/Education';
 import JobExperience from './components/resume/job-experience/JobExperience';
 import Skills from './components/resume/skills/Skills';
+import FurtherInformation from './components/resume/further-information/FurtherInformation';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path = "/resume/education" element = {<Education />} />
         <Route path = "/resume/job-experience" element = {<JobExperience />} />
         <Route path = "/resume/skills" element = {<Skills />} />
+        <Route path = "/resume/additional-information" element = {<FurtherInformation />} />
       </Route>
     </Routes>
    </BrowserRouter>
