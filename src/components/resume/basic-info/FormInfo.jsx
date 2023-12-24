@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 const FormInfo = () => {
 
   const dispatch = useDispatch();
+  const info = useSelector(selectInformation);
   const { province } = useSelector(selectInformation);
   const [cities, setCities] = useState([]);
 
@@ -39,6 +40,7 @@ const FormInfo = () => {
                 <Form.Control
                   type = "text"
                   name = "resumeName"
+                  value = {info.resumeName || ""}
                   maxLength = {20}
                   onChange = {handleChange}
                   placeholder="برای مثال : رزومه معماری" />
@@ -52,6 +54,7 @@ const FormInfo = () => {
                   <Form.Control 
                     type="text"
                     name = "firstName"
+                    value = {info.firstName || ""}
                     maxLength = {30}
                     onChange = {handleChange} 
                     placeholder = "نام" />
@@ -64,6 +67,7 @@ const FormInfo = () => {
                   <Form.Control 
                     type="text"
                     name = "lastName"
+                    value = {info.lastName || ""}
                     onChange = {handleChange}
                     maxLength = {80}
                     placeholder="نام خانوادگی" />
@@ -78,6 +82,7 @@ const FormInfo = () => {
                   <Form.Control 
                     type = "tel"
                     name = "mobile"
+                    value = {info.mobile || ""}
                     maxLength = {70}
                     onChange = {handleChange}
                     placeholder = "شماره همراه" />
@@ -89,7 +94,8 @@ const FormInfo = () => {
                   <Form.Select 
                     name = "gender"
                     onChange = {handleChange} 
-                    className = "text-muted"  
+                    className = "text-muted"
+                    value = {info.gender || "none"}  
                     defaultValue = "none">
                     <option className = "text-muted" value = "none">جنسیت</option>
                     <option className = "text-muted" value = "men">مرد</option>
@@ -105,7 +111,8 @@ const FormInfo = () => {
                   <Form.Select
                     name = "militaryStatus"
                     onChange = {handleChange} 
-                    className = "text-muted" 
+                    className = "text-muted"
+                    value = {info.militaryStatus || "none"} 
                     defaultValue = "none">
                     <option className = "text-muted" value = "none">وضعیت نظام وظیفه</option>
                     <option className = "text-muted" value = "educationPardon">معافیت تحصیلی</option>
@@ -121,7 +128,8 @@ const FormInfo = () => {
                   <Form.Select
                     name = "maritalStatus"
                     onChange = {handleChange} 
-                    className = "text-muted" 
+                    className = "text-muted"
+                    value = {info.maritalStatus || "none"} 
                     defaultValue = "none">
                     <option className = "text-muted" value = "none">وضعیت تاهل</option>
                     <option className = "text-muted" value = "single">مجرد</option>
@@ -137,8 +145,9 @@ const FormInfo = () => {
                   <Form.Select
                     name = "province"
                     onChange = {handleChange}
-                    className = "text-muted" 
-                    defaultValue = "none">
+                    className = "text-muted"
+                    value = {info.province || 0} 
+                    defaultValue = {0}>
                     <option className = "text-muted" value = {0}>استان خود را انتخاب کنید</option>
                     {
                       iranProvinces.map((iranProvince) => {
@@ -161,8 +170,9 @@ const FormInfo = () => {
                   <Form.Select
                     name = "city"
                     onChange = {handleChange}
-                    className = "text-muted" 
-                    defaultValue = "none">
+                    className = "text-muted"
+                    value = {info.city || 0}
+                    defaultValue = {0}>
                     <option className = "text-muted" value = {0}>شهر خود را انتخاب کنید</option>
                     {
                       cities.map((item) => {
@@ -187,6 +197,7 @@ const FormInfo = () => {
                   <Form.Control 
                     type = "number"
                     name = "salary"
+                    value = {info.salary || 0}
                     onChange = {handleChange} 
                     placeholder = "حقوق در خواستی" />
                 </Form.Group>
@@ -200,6 +211,7 @@ const FormInfo = () => {
                     calendar = {persian}
                     locale = {persian_fa}
                     onChange = {handleChange}
+                    value = {info.birthday || ""}
                     calendarPosition = "bottom-right"
                   />
                 </Form.Group>
@@ -209,6 +221,7 @@ const FormInfo = () => {
                 <Form.Control
                   name = "address"
                   type = "text"
+                  value = {info.address || ""}
                   maxLength = {120}
                   onChange = {handleChange}/>
               </Form.Group>
