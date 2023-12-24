@@ -3,11 +3,12 @@ import Col from 'react-bootstrap/Col';
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
-import { useDispatch } from "react-redux";
-import { setJobExperience } from "../../../features/job-experience/jobSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectJob, setJobExperience } from "../../../features/job-experience/jobSlice";
 const JobForm = () => {
 
     const dispatch = useDispatch();
+    const jobInfo = useSelector(selectJob);
 
     const handleChange = (event, inputName = "") => {
         if(!event.target){
@@ -23,6 +24,7 @@ const JobForm = () => {
             <Form.Label>گروه شغلی</Form.Label>
             <Form.Control
                 name = "jobGroup"
+                value = {jobInfo.jobGroup || ""}
                 type = "text"
                 onChange = {handleChange}
                 maxLength = {30}/>
@@ -33,6 +35,7 @@ const JobForm = () => {
                 <Form.Label>عنوان شغلی</Form.Label>
                 <Form.Control
                     name = "jobTitle"
+                    value = {jobInfo.jobTitle || ""}
                     type = "text"
                     onChange = {handleChange}
                     maxLength = {30}/>
@@ -41,6 +44,7 @@ const JobForm = () => {
                 <Form.Label>نام شرکت</Form.Label>
                 <Form.Control
                     name = "company"
+                    value = {jobInfo.company || ""}
                     type = "text"
                     onChange = {handleChange}
                     maxLength = {30}/>
@@ -52,6 +56,7 @@ const JobForm = () => {
                     <DatePicker
                         style = {{height : '35px'}}
                         name = "start"
+                        value = {jobInfo.start || ""}
                         onChange = {(event) => handleChange(event, "start")}
                         calendar = {persian}
                         locale = {persian_fa}
@@ -63,6 +68,7 @@ const JobForm = () => {
                     style = {{height : '35px'}}
                     name = "end"
                     calendar = {persian}
+                    value = {jobInfo.end || ""}
                     onChange = {(event) => handleChange(event, "end")}
                     locale = {persian_fa}
                     calendarPosition = "bottom-right"/>
