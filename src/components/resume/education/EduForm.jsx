@@ -9,6 +9,7 @@ import { selectEdu, setEduInfo } from "../../../features/education/educationSlie
 
 const EduForm = () => {
     const dispatch = useDispatch();
+    const eduInfo = useSelector(selectEdu);
     const { studying } = useSelector(selectEdu);
   
     const handleChange = (event, name = "") => {
@@ -29,7 +30,7 @@ const EduForm = () => {
                 <Form.Select 
                   name = "grade"
                   onChange = {handleChange}
-                  defaultValue = {0}>
+                  value = {eduInfo.grade || 0}>
                   <option className = "text-muted" value = {0}>مقطع تحصیلی خود را انتخاب کنید.</option>
                   {
                     grade.map(item => {
@@ -51,6 +52,7 @@ const EduForm = () => {
                   type = "text"
                   onChange = {handleChange}
                   name = "field"
+                  value = {eduInfo.field || ""}
                   maxLength = {30} />
               </Form.Group>
             </Row>
@@ -59,6 +61,7 @@ const EduForm = () => {
               <Form.Control 
                 type = "text"
                 name = "university"
+                value = {eduInfo.university || ""}
                 onChange = {handleChange}
                 maxLength = {30}/>
             </Form.Group>
@@ -68,6 +71,7 @@ const EduForm = () => {
                 <Form.Control 
                   type = "text"
                   name = "academicOrientation"
+                  value = {eduInfo.academicOrientation || ""}
                   onChange = {handleChange}
                   maxLength = {30} />
               </Form.Group>
@@ -75,6 +79,7 @@ const EduForm = () => {
                 <Form.Label className = "text-muted p-2">معدل</Form.Label>
                 <Form.Control 
                   type = "number"
+                  value = {eduInfo.average || ""}
                   min = {0}
                   max = {20}
                   onChange = {handleChange}
@@ -86,6 +91,7 @@ const EduForm = () => {
                 <Form.Label className = "text-muted p-2"> تاریخ شروع </Form.Label>
                 <DatePicker
                     style = {{height : '35px'}}
+                    value = {eduInfo.start || ""}
                     name = "start"
                     onChange = {(event) => handleChange(event,"start")}
                     calendar = {persian}
@@ -99,6 +105,7 @@ const EduForm = () => {
                     <DatePicker
                         style = {{height : '35px'}}
                         name = "end"
+                        value = {eduInfo.end || ""}
                         calendar = {persian}
                         onChange = {(event) => handleChange(event,"end")}
                         locale = {persian_fa}
@@ -111,7 +118,8 @@ const EduForm = () => {
                   className = "text-muted"
                   type = "checkbox"
                   onChange = {handleChange}
-                  name = "studying" 
+                  checked = {eduInfo.studying}
+                  name = "studying"
                   label="تاکنون" />
               </Form.Group>
             </Row>
