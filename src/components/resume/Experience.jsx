@@ -1,11 +1,14 @@
 import { Button, Col, Row } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
-import { useState } from "react";
-import JobStatus from "./JobStatus";
 import Resume from "./Resume";
+import { useDispatch } from "react-redux";
+import { setJobExperience } from "../../features/job-experience/jobSlice";
 const Experience = () => {
 
-  const [jobStatus, setJobStatus] = useState(false);
+  const dispatch = useDispatch();
+  const clickHandler = (jobExperience) => {
+    dispatch(setJobExperience({field: "jobExperience", value: jobExperience}));
+  }
 
   return (
     <Resume>
@@ -16,13 +19,13 @@ const Experience = () => {
           <div className = "d-grid gap-3">
             <Button 
                 variant = "outline-success"
-                onClick = {() => setJobStatus(false)}>
+                onClick = {() => clickHandler(false)}>
               <Icon.PersonFill className = "me-2" />
               سابقه کار ندارم 
             </Button>
             <Button 
                 variant = "outline-success"
-                onClick = {() => setJobStatus(true)}>
+                onClick = {() => clickHandler(true)}>
               <Icon.BriefcaseFill className = "me-2" />
               سابقه کار دارم
             </Button>
@@ -30,7 +33,6 @@ const Experience = () => {
         </Col>
         <Col md = {4}></Col>
       </Row>
-      {jobStatus &&  <JobStatus />}
     </Resume>
   )
 }

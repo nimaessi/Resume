@@ -5,7 +5,8 @@ const initialState = {
    jobTitle: "",
    company: "",
    start: "",
-   end: ""
+   end: "",
+   jobExperience: ""
 }
 const jobSlice = createSlice({
     name: "job",
