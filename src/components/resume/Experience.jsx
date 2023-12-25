@@ -3,11 +3,14 @@ import * as Icon from "react-bootstrap-icons";
 import Resume from "./Resume";
 import { useDispatch } from "react-redux";
 import { setJobExperience } from "../../features/job-experience/jobSlice";
+import { useNavigate } from "react-router-dom";
 const Experience = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const clickHandler = (jobExperience) => {
     dispatch(setJobExperience({field: "jobExperience", value: jobExperience}));
+    navigate("/resume/select-step");
   }
 
   return (
