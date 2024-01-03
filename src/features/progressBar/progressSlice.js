@@ -14,4 +14,4 @@ const progressSlice = createSlice({
 });
 export default progressSlice.reducer;
 export const { setProgress } = progressSlice.actions;
-export const selectJob = (store) => store.progress;
+export const selectPregress = (store) => store.progress;
