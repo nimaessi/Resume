@@ -95,8 +95,7 @@ const FormInfo = () => {
                     name = "gender"
                     onChange = {handleChange} 
                     className = "text-muted"
-                    value = {info.gender || "none"}  
-                    defaultValue = "none">
+                    value = {info.gender || "none"} >
                     <option className = "text-muted" value = "none">جنسیت</option>
                     <option className = "text-muted" value = "men">مرد</option>
                     <option className = "text-muted" value = "women">زن</option>
@@ -112,8 +111,7 @@ const FormInfo = () => {
                     name = "militaryStatus"
                     onChange = {handleChange} 
                     className = "text-muted"
-                    value = {info.militaryStatus || "none"} 
-                    defaultValue = "none">
+                    value = {info.militaryStatus || "none"} >
                     <option className = "text-muted" value = "none">وضعیت نظام وظیفه</option>
                     <option className = "text-muted" value = "educationPardon">معافیت تحصیلی</option>
                     <option className = "text-muted" value = "exemption">معافیت</option>
@@ -129,8 +127,7 @@ const FormInfo = () => {
                     name = "maritalStatus"
                     onChange = {handleChange} 
                     className = "text-muted"
-                    value = {info.maritalStatus || "none"} 
-                    defaultValue = "none">
+                    value = {info.maritalStatus || "none"} >
                     <option className = "text-muted" value = "none">وضعیت تاهل</option>
                     <option className = "text-muted" value = "single">مجرد</option>
                     <option className = "text-muted" value = "married">متاهل</option>
@@ -146,8 +143,7 @@ const FormInfo = () => {
                     name = "province"
                     onChange = {handleChange}
                     className = "text-muted"
-                    value = {info.province || 0} 
-                    defaultValue = {0}>
+                    value = {info.province || 0} >
                     <option className = "text-muted" value = {0}>استان خود را انتخاب کنید</option>
                     {
                       iranProvinces.map((iranProvince) => {
@@ -171,8 +167,7 @@ const FormInfo = () => {
                     name = "city"
                     onChange = {handleChange}
                     className = "text-muted"
-                    value = {info.city || 0}
-                    defaultValue = {0}>
+                    value = {info.city || 0} >
                     <option className = "text-muted" value = {0}>شهر خود را انتخاب کنید</option>
                     {
                       cities.map((item) => {

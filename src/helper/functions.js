@@ -13,7 +13,7 @@ function countEmptyValues(obj,total) {
   let full = total - emptyCount;
   let progress = (full *100)/ total;
   store.dispatch(setProgress(Math.round(progress)));
-  return Math.round(progress);
+  return progress;
 
 }
 
