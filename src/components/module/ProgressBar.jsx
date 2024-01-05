@@ -6,21 +6,24 @@ import { selectJob } from "../../features/job-experience/jobSlice";
 import { selectSkill } from "../../features/skills/skillSlice";
 import { useEffect } from "react";
 import { countEmptyValues } from "../../helper/functions";
+import { selectPregress } from "../../features/progressBar/progressSlice";
 const MyProgressBar = () => {
 
   const basicInfo = useSelector(selectInformation);
   const eduInfo = useSelector(selectEdu);
   const jobInfo = useSelector(selectJob);
   const skillInfo = useSelector(selectSkill);
+  const prg = useSelector(selectPregress);
 
   useEffect(() => {
-    countEmptyValues({basicInfo,eduInfo,jobInfo,skillInfo});
+    const num = countEmptyValues({...basicInfo,...eduInfo,...jobInfo,...skillInfo}, 26);
+    console.log("NUM" , num)
   },[basicInfo,eduInfo,jobInfo,skillInfo]);
 
   return (
     <>
-      <span className = "text-muted fs-14 p-2">درصد تکمیل 15</span>
-      <ProgressBar className = "mt-2" variant = "danger" now = {15} />
+      <span className = "text-muted fs-14 p-2">{prg.progress} درصد تکمیل </span>
+      <ProgressBar className = "mt-2" variant = "danger" now = {+prg.progress} />
     </>
   )
 }
