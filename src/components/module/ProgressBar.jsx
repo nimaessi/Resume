@@ -16,14 +16,13 @@ const MyProgressBar = () => {
   const prg = useSelector(selectPregress);
 
   useEffect(() => {
-    const num = countEmptyValues({...basicInfo,...eduInfo,...jobInfo,...skillInfo}, 26);
-    console.log("NUM" , num)
+    countEmptyValues({...basicInfo,...eduInfo,...jobInfo,...skillInfo});
   },[basicInfo,eduInfo,jobInfo,skillInfo]);
 
   return (
     <>
       <span className = "text-muted fs-14 p-2">{prg.progress} درصد تکمیل </span>
-      <ProgressBar className = "mt-2" variant = "danger" now = {+prg.progress} />
+      <ProgressBar className = "mt-2" variant = {+prg.progress > 50 ? "success" : "danger"} now = {+prg.progress} />
     </>
   )
 }
