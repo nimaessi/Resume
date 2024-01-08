@@ -18,4 +18,28 @@ function countEmptyValues(obj) {
   store.dispatch(setProgress(Math.round(progress)));
 }
 
-export { countEmptyValues };
+function getPathTitle(path) {
+
+  var pathTitle = "";
+  switch(path){
+
+    case "/resume":
+       return pathTitle = "ساخت رزومه - وضعیت شغلی";
+    case "/resume/select-step":
+      return pathTitle = "ساخت رزومه - انتخاب مراحل";
+    case "/resume/basic-info":
+      return pathTitle = "ساخت رزومه -  اطلاعات اولیه";
+    case "/resume/education":
+      return pathTitle = "ساخت رزومه - وضعیت شغلی";
+    case "/resume/job-experience":
+      return pathTitle = "ساخت رزومه - سابقه شغلی";
+    case "/resume/skills":
+      return pathTitle = "ساخت رزومه -  مهارت ها";
+    case "/resume/additional-information":
+      return pathTitle = "ساخت رزومه -  اطلاعات تکمیلی";
+    default:
+      return pathTitle = "";
+  }
+}
+
+export { countEmptyValues, getPathTitle };
