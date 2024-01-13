@@ -1,5 +1,6 @@
 import store from "../app/store";
 import { setProgress } from "../features/progressBar/progressSlice";
+import { validateBasicInfo } from "./validate";
 
 function countEmptyValues(obj) {
 
@@ -30,7 +31,7 @@ function getPathTitle(path) {
     case "/resume/basic-info":
       return pathTitle = "ساخت رزومه -  اطلاعات اولیه";
     case "/resume/education":
-      return pathTitle = "ساخت رزومه - وضعیت شغلی";
+      return pathTitle = "ساخت رزومه - وضعیت تحصیلی";
     case "/resume/job-experience":
       return pathTitle = "ساخت رزومه - سابقه شغلی";
     case "/resume/skills":
@@ -42,4 +43,13 @@ function getPathTitle(path) {
   }
 }
 
-export { countEmptyValues, getPathTitle };
+function runValidation(routeName){
+
+  switch(routeName){
+    case "/resume/basic-info":
+    validateBasicInfo();
+    break;
+  }
+}
+
+export { countEmptyValues, getPathTitle, runValidation };

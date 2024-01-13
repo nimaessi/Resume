@@ -1,10 +1,15 @@
-export const formValidate = (field, value) => {
-
-    if(field === "firstName"){
-        if(value.length > 0 && value.length < 40){
-            return true;
-        }
-        return false;
+export const validateBasicInfo = (obj) => {
+    var result = [];
+    if(obj.firstName.length == 0 || obj.firstName.length > 30){
+        result.push("firstName");
     }
-    return true;
+    var regexResumeName = /^[a-zA-Z]+$/;
+    if(obj.resumeName.length > 20 || !regexResumeName.test(obj.resumeName)){
+        result.push("resumeName");
+    }
+
+
+        
+    return result;
 }
+
