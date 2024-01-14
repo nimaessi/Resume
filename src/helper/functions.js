@@ -1,6 +1,7 @@
 import store from "../app/store";
 import { setProgress } from "../features/progressBar/progressSlice";
 import { validateBasicInfo } from "./validate";
+import { toast } from 'react-toastify';
 
 function countEmptyValues(obj) {
 
@@ -52,4 +53,18 @@ function runValidation(routeName){
   }
 }
 
-export { countEmptyValues, getPathTitle, runValidation };
+const notify = () => toast.error('متن خطا ...', 
+  {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    rtl: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "colored",
+    progress: undefined,
+  }
+  );
+
+export { countEmptyValues, getPathTitle, runValidation, notify };
