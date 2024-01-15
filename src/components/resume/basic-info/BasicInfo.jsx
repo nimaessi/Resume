@@ -5,11 +5,10 @@ import FormInfo from "./FormInfo";
 import ProgressBar from "../../module/ProgressBar";
 import { useSelector } from "react-redux";
 import { selectInformation } from "../../../features/information/informationSlice";
-import { notify } from "../../../helper/functions";
 
 const BasicInfo = () => {
   const { resumeName } = useSelector(selectInformation);
-  notify();
+ 
   return (
     <Resume>
       <Row>

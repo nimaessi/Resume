@@ -44,16 +44,8 @@ function getPathTitle(path) {
   }
 }
 
-function runValidation(routeName){
 
-  switch(routeName){
-    case "/resume/basic-info":
-    validateBasicInfo();
-    break;
-  }
-}
-
-const notify = () => toast.error('متن خطا ...', 
+const notifyError = (message = " ") => toast.error( message, 
   {
     position: "top-center",
     autoClose: 5000,
@@ -67,4 +59,4 @@ const notify = () => toast.error('متن خطا ...',
   }
   );
 
-export { countEmptyValues, getPathTitle, runValidation, notify };
+export { countEmptyValues, getPathTitle, notifyError };
