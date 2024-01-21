@@ -2,13 +2,17 @@ import { Button, Container } from "react-bootstrap"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { runValidation } from "../../helper/validate";
 import { notifyError } from "../../helper/functions";
+import { useDispatch } from "react-redux";
+import { setValidate } from "../../features/validation/validationSlice";
 
 const NextStep = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const clickHandler = () => {
     const res = runValidation(location.pathname);
+    dispatch(setValidate(res));
     res.length > 0 ? notifyError("موارد خواسته شده را به درستی پر کنید") : navigate("/resume/select-step")
   }
 

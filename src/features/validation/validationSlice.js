@@ -7,7 +7,7 @@ const validationSlice = createSlice({
     initialState,
     reducers:{
         setValidate: (state, action) => {
-            state.push(action.payload);
+            state = action.payload;
         }
     }
 });
