@@ -9,6 +9,7 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { useEffect, useState } from "react";
 import Num2persian from "num2persian";
+import { selectValidation } from "../../../features/validation/validationSlice.js";
 
 const FormInfo = () => {
 
@@ -16,7 +17,7 @@ const FormInfo = () => {
   const info = useSelector(selectInformation);
   const { province } = useSelector(selectInformation);
   const [cities, setCities] = useState([]);
-
+  const validate = useSelector(selectValidation);
 
   const handleChange = (event) => {
     if(!event.target){
@@ -213,7 +214,7 @@ const FormInfo = () => {
                 </Form.Group>
               </Row>
               <Row className = "mb-3">
-                { info.salary &&
+                { info.salary > 0 &&
                   <span className = "text-success ms-3 fs-6">{Num2persian(info.salary)}  تومان</span>
                 }
               </Row>

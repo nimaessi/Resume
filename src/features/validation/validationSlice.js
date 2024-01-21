@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = {
+    validation: []
+};
 
 const validationSlice = createSlice({
     name: "validation",
     initialState,
     reducers:{
         setValidate: (state, action) => {
-            state = action.payload;
+            state.validation = action.payload;
         }
     }
 });

@@ -15,13 +15,13 @@ export const validateBasicInfo = () => {
     if(obj.lastName.length == 0 || obj.lastName.length > 80){
         result.push("lastName");
     }
-    if(obj.mobile){
+    if(obj.mobile || obj.mobile.length == 0){
         let reg = /^09[0|1|2|3][0-9]{8}$/;
         if(!reg.test(obj.mobile)){
             result.push("mobile");
         }
     }
-    if(obj.gender === "none"){
+    if(obj.gender === "none" || obj.gender == ""){
         result.push("gender");
     }
     if(obj.address.length > 120){

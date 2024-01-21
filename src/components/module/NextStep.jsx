@@ -13,7 +13,7 @@ const NextStep = () => {
   const clickHandler = () => {
     const res = runValidation(location.pathname);
     dispatch(setValidate(res));
-    res.length > 0 ? notifyError("موارد خواسته شده را به درستی پر کنید") : navigate("/resume/select-step")
+    res.length > 0 ? notifyError("موارد خواسته شده را پر کنید") : navigate("/resume/select-step")
   }
 
   return (
