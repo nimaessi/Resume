@@ -8,6 +8,7 @@ import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { useEffect, useState } from "react";
+import Num2persian from "num2persian";
 
 const FormInfo = () => {
 
@@ -15,6 +16,7 @@ const FormInfo = () => {
   const info = useSelector(selectInformation);
   const { province } = useSelector(selectInformation);
   const [cities, setCities] = useState([]);
+
 
   const handleChange = (event) => {
     if(!event.target){
@@ -41,7 +43,7 @@ const FormInfo = () => {
                   type = "text"
                   name = "resumeName"
                   value = {info.resumeName || ""}
-                  maxLength = {20}
+                  maxLength = {30}
                   onChange = {handleChange}
                   placeholder="برای مثال : رزومه معماری" />
             </Form.Group>
@@ -192,9 +194,8 @@ const FormInfo = () => {
                   <Form.Control 
                     type = "number"
                     name = "salary"
-                    value = {info.salary || 0}
-                    onChange = {handleChange} 
-                    placeholder = "حقوق در خواستی" />
+                    value = {info.salary || ""}
+                    onChange = {handleChange} />
                 </Form.Group>
                 <Form.Group as={Col} controlId="birthday">
                   <Form.Label className = "text-muted ms-2 me-3">
@@ -210,6 +211,11 @@ const FormInfo = () => {
                     calendarPosition = "bottom-right"
                   />
                 </Form.Group>
+              </Row>
+              <Row className = "mb-3">
+                { info.salary &&
+                  <span className = "text-success ms-3 fs-6">{Num2persian(info.salary)}  تومان</span>
+                }
               </Row>
               <Form.Group className="mb-3" controlId="Address">
                 <Form.Label className = "text-muted">آدرس</Form.Label>

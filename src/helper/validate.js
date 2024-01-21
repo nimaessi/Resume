@@ -8,7 +8,9 @@ export const validateBasicInfo = () => {
     }
     if(obj.resumeName.length > 0){
         var regexResumeName = /^[^@$^&*!]+$/;
-        if(!regexResumeName.test(obj.resumeName)) result.push("resumeName");
+        if(!regexResumeName.test(obj.resumeName) || obj.resumeName.length > 30){
+            result.push("resumeName");  
+        } 
     }
     if(obj.lastName.length == 0 || obj.lastName.length > 80){
         result.push("lastName");
@@ -21,6 +23,9 @@ export const validateBasicInfo = () => {
     }
     if(obj.gender === "none"){
         result.push("gender");
+    }
+    if(obj.address.length > 120){
+        result.push("address");
     }
     return result;
 }
