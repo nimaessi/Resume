@@ -1,6 +1,7 @@
 import { Button, Container } from "react-bootstrap"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { runValidation } from "../../helper/validate";
+import { notifyError } from "../../helper/functions";
 
 const NextStep = () => {
 
@@ -8,7 +9,7 @@ const NextStep = () => {
   const location = useLocation();
   const clickHandler = () => {
     const res = runValidation(location.pathname);
-    console.log("RES VALIDATE", res);
+    res.length > 0 ? notifyError("موارد خواسته شده را به درستی پر کنید") : navigate("/resume/select-step")
   }
 
   return (
