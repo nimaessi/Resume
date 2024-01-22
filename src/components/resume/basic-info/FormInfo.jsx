@@ -17,7 +17,7 @@ const FormInfo = () => {
   const info = useSelector(selectInformation);
   const { province } = useSelector(selectInformation);
   const [cities, setCities] = useState([]);
-  const validate = useSelector(selectValidation);
+  const { validation } = useSelector(selectValidation);
 
   const handleChange = (event) => {
     if(!event.target){
@@ -42,6 +42,7 @@ const FormInfo = () => {
                 <Form.Label className = "text-muted p-2">نام رزومه</Form.Label>
                 <Form.Control
                   type = "text"
+                  className = {validation.includes("resumeName") ? "bg-danger bg-opacity-25" : " "}
                   name = "resumeName"
                   value = {info.resumeName || ""}
                   maxLength = {30}
@@ -57,6 +58,7 @@ const FormInfo = () => {
                   <Form.Control 
                     type="text"
                     name = "firstName"
+                    className = {validation.includes("firstName") ? "bg-danger bg-opacity-25" : " "}
                     value = {info.firstName || ""}
                     maxLength = {30}
                     onChange = {handleChange} 
@@ -70,6 +72,7 @@ const FormInfo = () => {
                   <Form.Control 
                     type="text"
                     name = "lastName"
+                    className = {validation.includes("lastName") ? "bg-danger bg-opacity-25" : " "}
                     value = {info.lastName || ""}
                     onChange = {handleChange}
                     maxLength = {80}
@@ -85,6 +88,7 @@ const FormInfo = () => {
                   <Form.Control 
                     type = "tel"
                     name = "mobile"
+                    className = {validation.includes("mobile") ? "bg-danger bg-opacity-25" : " "}
                     value = {info.mobile || ""}
                     maxLength = {70}
                     onChange = {handleChange}
@@ -96,8 +100,8 @@ const FormInfo = () => {
                   </Form.Label>
                   <Form.Select 
                     name = "gender"
-                    onChange = {handleChange} 
-                    className = "text-muted"
+                    onChange = {handleChange}
+                    className = {validation.includes("gender") ? "bg-danger bg-opacity-25 text-muted" : "text-muted"}
                     value = {info.gender || "none"} >
                     <option className = "text-muted" value = "none">جنسیت</option>
                     <option className = "text-muted" value = "men">مرد</option>
@@ -222,6 +226,7 @@ const FormInfo = () => {
                 <Form.Label className = "text-muted">آدرس</Form.Label>
                 <Form.Control
                   name = "address"
+                  className = {validation.includes("address") ? "bg-danger bg-opacity-25" : " "}
                   type = "text"
                   value = {info.address || ""}
                   maxLength = {120}
