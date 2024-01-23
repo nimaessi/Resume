@@ -6,11 +6,13 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import grade from "../../../utils/grade";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEdu, setEduInfo } from "../../../features/education/educationSlie";
+import { selectValidation } from "../../../features/validation/validationSlice";
 
 const EduForm = () => {
     const dispatch = useDispatch();
     const eduInfo = useSelector(selectEdu);
     const { studying } = useSelector(selectEdu);
+    const { validation } = useSelector(selectValidation);
   
     const handleChange = (event, name = "") => {
       if(name === "end" || name === "start"){
@@ -26,9 +28,13 @@ const EduForm = () => {
     <Form className = "mt-5">
             <Row className = "mb-3">
               <Form.Group as = {Col}>
-                <Form.Label className = "text-muted p-2"> مقطع تحصیلی</Form.Label>
+                <Form.Label className = "text-muted p-2"> 
+                  مقطع تحصیلی 
+                  <span className = "text-danger fw-bold fs-3"> * </span>
+                </Form.Label>
                 <Form.Select 
                   name = "grade"
+                  className = {validation.includes("grade") ? "bg-danger bg-opacity-25" : " "}
                   onChange = {handleChange}
                   value = {eduInfo.grade || 0}>
                   <option className = "text-muted" value = {0}>مقطع تحصیلی خود را انتخاب کنید.</option>
@@ -47,13 +53,17 @@ const EduForm = () => {
                 </Form.Select>
               </Form.Group>
               <Form.Group as = {Col}>
-                <Form.Label className = "text-muted p-2"> رشته تحصیلی</Form.Label>
+                <Form.Label className = "text-muted p-2"> 
+                  رشته تحصیلی   
+                  <span className = "text-danger fw-bold fs-3"> * </span>
+                </Form.Label>
                 <Form.Control 
                   type = "text"
+                  className = {validation.includes("field") ? "bg-danger bg-opacity-25" : " "}
                   onChange = {handleChange}
                   name = "field"
                   value = {eduInfo.field || ""}
-                  maxLength = {30} />
+                  maxLength = {45} />
               </Form.Group>
             </Row>
             <Form.Group className = "mb-3">
@@ -61,9 +71,10 @@ const EduForm = () => {
               <Form.Control 
                 type = "text"
                 name = "university"
+                className = {validation.includes("university") ? "bg-danger bg-opacity-25" : " "}
                 value = {eduInfo.university || ""}
                 onChange = {handleChange}
-                maxLength = {30}/>
+                maxLength = {45}/>
             </Form.Group>
             <Row className = "mb-3">
               <Form.Group as = {Col}>
@@ -71,6 +82,7 @@ const EduForm = () => {
                 <Form.Control 
                   type = "text"
                   name = "academicOrientation"
+                  className = {validation.includes("academicOrientation") ? "bg-danger bg-opacity-25" : " "}
                   value = {eduInfo.academicOrientation || ""}
                   onChange = {handleChange}
                   maxLength = {30} />
@@ -80,6 +92,7 @@ const EduForm = () => {
                 <Form.Control 
                   type = "number"
                   value = {eduInfo.average || ""}
+                  className = {validation.includes("average") ? "bg-danger bg-opacity-25" : " "}
                   min = {0}
                   max = {20}
                   onChange = {handleChange}

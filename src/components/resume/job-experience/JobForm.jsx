@@ -5,10 +5,12 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { useDispatch, useSelector } from "react-redux";
 import { selectJob, setJobExperience } from "../../../features/job-experience/jobSlice";
+import { selectValidation } from "../../../features/validation/validationSlice";
 const JobForm = () => {
 
     const dispatch = useDispatch();
     const jobInfo = useSelector(selectJob);
+    const { validation } = useSelector(selectValidation);
 
     const handleChange = (event, inputName = "") => {
         if(!event.target){
@@ -24,6 +26,7 @@ const JobForm = () => {
             <Form.Label>گروه شغلی</Form.Label>
             <Form.Control
                 name = "jobGroup"
+                className = {validation.includes("jobGroup") ? "bg-danger bg-opacity-25" : " "}
                 value = {jobInfo.jobGroup || ""}
                 type = "text"
                 onChange = {handleChange}
@@ -35,6 +38,7 @@ const JobForm = () => {
                 <Form.Label>عنوان شغلی</Form.Label>
                 <Form.Control
                     name = "jobTitle"
+                    className = {validation.includes("jobTitle") ? "bg-danger bg-opacity-25" : " "}
                     value = {jobInfo.jobTitle || ""}
                     type = "text"
                     onChange = {handleChange}
@@ -44,6 +48,7 @@ const JobForm = () => {
                 <Form.Label>نام شرکت</Form.Label>
                 <Form.Control
                     name = "company"
+                    className = {validation.includes("company") ? "bg-danger bg-opacity-25" : " "}
                     value = {jobInfo.company || ""}
                     type = "text"
                     onChange = {handleChange}

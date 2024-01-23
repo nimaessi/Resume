@@ -30,11 +30,54 @@ export const validateBasicInfo = () => {
     return result;
 }
 
+export const validateEducation = () => {
+
+    var result = [];
+    const obj = store.getState().education;
+
+    if(obj.grade == 0 || obj.grade == "none"){
+        result.push("grade");
+    }
+    if(obj.field.length > 45 || obj.field.length === 0){
+        result.push("field");
+    }
+    if(obj.university.length > 45){
+        result.push("university");
+    }
+    if(obj.academicOrientation.length > 35){
+        result.push("academicOrientation");
+    }
+    if(obj.average > 20 || obj.average < 0){
+        result.push("average");
+    }
+    return result;
+}
+export const validateExperience = () => {
+    var result = [];
+    const obj = store.getState().job;
+    if(obj.jobGroup.length > 30){
+        result.push("jobGroup");
+    }
+    if(obj.jobTitle.length > 30){
+        result.push("jobTitle");
+    }
+    if(obj.company.length > 30){
+        result.push("company");
+    }
+    return result;
+}
+
 export const runValidation = (routeName) => {
     var result;
     switch(routeName){
       case "/resume/basic-info":
-      result = validateBasicInfo();
+        result = validateBasicInfo();
+      break;
+      case "/resume/education":
+        result = validateEducation();
+      break;
+      case "/resume/job-experience":
+        result = validateExperience();
       break;
     }
     return result;
