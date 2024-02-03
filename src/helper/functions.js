@@ -1,6 +1,6 @@
 import store from "../app/store";
 import { setProgress } from "../features/progressBar/progressSlice";
-import { validateBasicInfo } from "./validate";
+import { ADDITIONALINFO, BASICINFO, EDUCATION, JOBEXPERIENCE, RESUME, SELECTSTEP, SKILLS } from "../routes/routeAddress";
 import { toast } from 'react-toastify';
 
 function countEmptyValues(obj) {
@@ -25,19 +25,19 @@ function getPathTitle(path) {
   var pathTitle = "";
   switch(path){
 
-    case "/resume":
+    case RESUME:
        return pathTitle = "ساخت رزومه - وضعیت شغلی";
-    case "/resume/select-step":
+    case SELECTSTEP:
       return pathTitle = "ساخت رزومه - انتخاب مراحل";
-    case "/resume/basic-info":
+    case BASICINFO:
       return pathTitle = "ساخت رزومه -  اطلاعات اولیه";
-    case "/resume/education":
+    case EDUCATION:
       return pathTitle = "ساخت رزومه - وضعیت تحصیلی";
-    case "/resume/job-experience":
+    case JOBEXPERIENCE:
       return pathTitle = "ساخت رزومه - سابقه شغلی";
-    case "/resume/skills":
+    case SKILLS:
       return pathTitle = "ساخت رزومه -  مهارت ها";
-    case "/resume/additional-information":
+    case ADDITIONALINFO:
       return pathTitle = "ساخت رزومه -  اطلاعات تکمیلی";
     default:
       return pathTitle = "";

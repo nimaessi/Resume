@@ -1,4 +1,5 @@
 import store from "../app/store";
+import { BASICINFO, EDUCATION, JOBEXPERIENCE, SKILLS } from "../routes/routeAddress";
 
 export const validateBasicInfo = () => {
     var result = [];
@@ -78,16 +79,16 @@ export const validateSkills  = () => {
 export const runValidation = (routeName) => {
     var result;
     switch(routeName){
-      case "/resume/basic-info":
+      case BASICINFO:
         result = validateBasicInfo();
       break;
-      case "/resume/education":
+      case EDUCATION:
         result = validateEducation();
       break;
-      case "/resume/job-experience":
+      case JOBEXPERIENCE:
         result = validateExperience();
       break;
-      case "/resume/skills":
+      case SKILLS:
         result = validateSkills();
       break;
       default:

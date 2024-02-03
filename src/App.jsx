@@ -8,21 +8,22 @@ import Education from './components/resume/education/Education';
 import JobExperience from './components/resume/job-experience/JobExperience';
 import Skills from './components/resume/skills/Skills';
 import FurtherInformation from './components/resume/further-information/FurtherInformation';
+import { ADDITIONALINFO, BASICINFO, EDUCATION, JOBEXPERIENCE, PATH, RESUME, SELECTSTEP, SKILLS } from './routes/routeAddress';
 
 function App() {
 
   return (
    <BrowserRouter>
     <Routes>
-      <Route path = "/" element = {<Layout />} >
+      <Route path = {PATH} element = {<Layout />} >
         <Route index element = {<Home />} />
-        <Route path = "/resume/*" element = {<Experience />}/>
-        <Route path = "/resume/basic-info" element = {<BasicInfo />} />
-        <Route path = "/resume/select-step" element = {<Steps />} />
-        <Route path = "/resume/education" element = {<Education />} />
-        <Route path = "/resume/job-experience" element = {<JobExperience />} />
-        <Route path = "/resume/skills" element = {<Skills />} />
-        <Route path = "/resume/additional-information" element = {<FurtherInformation />} />
+        <Route path = {`${RESUME}/*`} element = {<Experience />}/>
+        <Route path = {BASICINFO} element = {<BasicInfo />} />
+        <Route path = {SELECTSTEP} element = {<Steps />} />
+        <Route path = {EDUCATION} element = {<Education />} />
+        <Route path = {JOBEXPERIENCE} element = {<JobExperience />} />
+        <Route path = {SKILLS} element = {<Skills />} />
+        <Route path = {ADDITIONALINFO} element = {<FurtherInformation />} />
       </Route>
     </Routes>
    </BrowserRouter>
