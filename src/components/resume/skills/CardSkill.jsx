@@ -6,7 +6,6 @@ const CardSkill = ({skill, rating, cardId}) => {
 
   const dispatch = useDispatch();
   const deleteSkill = (id) => {
-    console.log("REMOVE =>", id);
     dispatch(removeSkill(id));
   }
   return (

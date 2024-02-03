@@ -4,7 +4,7 @@ import Stars from "./Stars";
 
 const SkillForm = ({rating, setRating}) => {
   const handleChange = (event) => {
-    setRating(prevState => ({...prevState, skill: event.target.value}));
+      setRating(prevState => ({...prevState, skill: event.target.value}));
   }
   return (
     <Row className = "mb-3">

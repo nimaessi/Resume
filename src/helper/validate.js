@@ -90,6 +90,8 @@ export const runValidation = (routeName) => {
       case "/resume/skills":
         result = validateSkills();
       break;
+      default:
+        return [];
     }
     return result;
 }
