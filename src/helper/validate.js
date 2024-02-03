@@ -66,6 +66,14 @@ export const validateExperience = () => {
     }
     return result;
 }
+export const validateSkills  = () => {
+    var result = [];
+    const obj = store.getState().skills;
+    if(obj.skill.length === 0){
+        result.push("skill");
+    }
+    return result;
+}
 
 export const runValidation = (routeName) => {
     var result;
@@ -78,6 +86,9 @@ export const runValidation = (routeName) => {
       break;
       case "/resume/job-experience":
         result = validateExperience();
+      break;
+      case "/resume/skills":
+        result = validateSkills();
       break;
     }
     return result;
