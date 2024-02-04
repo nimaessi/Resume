@@ -30,6 +30,9 @@ const FurtherInformation = () => {
                         as = "textarea"
                         aria-label = "اطلاعات تکمیلی" />
                 </InputGroup>
+                <span className = {info.additionalInformation.length >= 500 ? "text-danger": "text-success"}>
+                    {info.additionalInformation.length}/500
+                </span>
             </Col>
             <Col md = {5}></Col>
         </Row>
