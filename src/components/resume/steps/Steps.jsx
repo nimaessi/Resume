@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { selectJob } from "../../../features/job-experience/jobSlice";
 
 const Steps = () => {
-    
     const jobInfo = useSelector(selectJob);
   return (
     <Resume displayBtn = {false} >
@@ -41,6 +40,12 @@ const Steps = () => {
                 <Link className = "nav-link text-muted fs-5" to = "/resume/additional-information">
                     <Icon.PlusCircle className = "me-2" />
                      اطلاعات تکمیلی
+                </Link>  
+            </ListGroup.Item>
+            <ListGroup.Item className = "border border-0 p-2 m-2">
+                <Link className = "nav-link text-muted fs-5">
+                    <Icon.FilePdf className = "me-2" />
+                     دانلود رزومه
                 </Link>  
             </ListGroup.Item>
         </ListGroup>
