@@ -6,3 +6,4 @@ export const EDUCATION = "/resume/education";
 export const JOBEXPERIENCE = "/resume/job-experience";
 export const SKILLS = "/resume/skills";
 export const ADDITIONALINFO  = "/resume/additional-information";
+export const GENERATEPDF = "/resume/generatepdf";
