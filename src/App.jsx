@@ -9,8 +9,7 @@ import JobExperience from './components/resume/job-experience/JobExperience';
 import Skills from './components/resume/skills/Skills';
 import FurtherInformation from './components/resume/further-information/FurtherInformation';
 import { ADDITIONALINFO, BASICINFO, EDUCATION, GENERATEPDF, JOBEXPERIENCE, PATH, RESUME, SELECTSTEP, SKILLS } from './routes/routeAddress';
-import GeneratePdf from './components/pdf/GeneratePdf';
-
+import GeneratePdf from './components/resume/pdf/GeneratePdf';
 function App() {
 
   return (

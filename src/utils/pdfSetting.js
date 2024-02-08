@@ -4,7 +4,7 @@ const options = {
     method: 'open',
     resolution: Resolution.HIGH,
     page: {
-       margin: Margin.SMALL,
+       margin: Margin.MEDIUM,
         // default is 'A4' can be letter
        format: 'A4',
        // default is 'portrait' can be landscape

@@ -43,7 +43,7 @@ const Steps = () => {
                 </Link>  
             </ListGroup.Item>
             <ListGroup.Item className = "border border-0 p-2 m-2">
-                <Link className = "nav-link text-muted fs-5">
+                <Link className = "nav-link text-muted fs-5" to = "/resume/generatepdf" >
                     <Icon.FilePdf className = "me-2" />
                      دانلود رزومه
                 </Link>  
