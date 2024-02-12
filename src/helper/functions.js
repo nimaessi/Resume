@@ -2,6 +2,7 @@ import store from "../app/store";
 import { setProgress } from "../features/progressBar/progressSlice";
 import { ADDITIONALINFO, BASICINFO, EDUCATION, JOBEXPERIENCE, RESUME, SELECTSTEP, SKILLS } from "../routes/routeAddress";
 import { toast } from 'react-toastify';
+import iranCities from "../utils/cities";
 
 function countEmptyValues(obj) {
 
@@ -59,4 +60,9 @@ const notifyError = (message = " ") => toast.error( message,
   }
   );
 
-export { countEmptyValues, getPathTitle, notifyError };
+const getCityName =  (id) => {
+   const city = iranCities.filter((city) => city.id == id);
+   return city[0].name;
+}
+ 
+export { countEmptyValues, getPathTitle, notifyError, getCityName };
