@@ -1,6 +1,9 @@
 import * as Icon from "react-bootstrap-icons";
+import { useSelector } from "react-redux";
+import { selectJob } from "../../../features/job-experience/jobSlice";
 
 const JobExpPDF = () => {
+    const job = useSelector(selectJob);
   return (
     <>
         <h6 className = "mt-5 pb-2 text-muted ms-3 border-3 border-bottom border-success border-opacity-75 w-75">
