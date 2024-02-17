@@ -60,9 +60,41 @@ const notifyError = (message = " ") => toast.error( message,
   }
   );
 
-const getCityName =  (id) => {
-   const city = iranCities.filter((city) => city.id == id);
-   return city[0].name;
+const getCityName =  () => {
+  const cityId = store.getState().information.city; 
+  const city = iranCities.filter((city) => city.id == parseInt(cityId));
+  return city[0].name;
+}
+
+const getMilitaryName = () => {
+  const militaryStatus = store.getState().information.militaryStatus; 
+  switch(militaryStatus) {
+    case "none":
+      return " ";
+    case "educationPardon":
+      return "معافیت تحصیلی";
+    case "exemption":
+      return "معافیت دائم";
+    case "included":
+      return "مشمول";
+    case "end":
+      return "پایان خدمت";
+    default:
+      return " ";
+  }
+}
+const getMaritalName = () => {
+  const marital = store.getState().information.maritalStatus;
+  switch(marital) {
+    case "none":
+      return " ";
+    case "single":
+      return "مجرد";
+    case "married":
+      return "متاهل";
+    default:
+      return " ";
+  }
 }
  
-export { countEmptyValues, getPathTitle, notifyError, getCityName };
+export { countEmptyValues, getPathTitle, notifyError, getCityName, getMilitaryName, getMaritalName };
