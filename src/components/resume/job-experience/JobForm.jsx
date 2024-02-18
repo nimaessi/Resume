@@ -3,21 +3,17 @@ import Col from 'react-bootstrap/Col';
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
-import { useDispatch, useSelector } from "react-redux";
-import { selectJob, setJobExperience } from "../../../features/job-experience/jobSlice";
+import { useSelector } from "react-redux";
 import { selectValidation } from "../../../features/validation/validationSlice";
-const JobForm = () => {
+const JobForm = ({jobItem, setJobItem}) => {
 
-    const dispatch = useDispatch();
-    const jobInfo = useSelector(selectJob);
     const { validation } = useSelector(selectValidation);
-
     const handleChange = (event, inputName = "") => {
         if(!event.target){
             const date = new Date(event);
-            dispatch(setJobExperience({field: inputName, value: date.toLocaleDateString('fa-IR')}));
+            setJobItem({...jobItem, [inputName]: date.toLocaleDateString('fa-IR')});
         } else{
-            dispatch(setJobExperience({field : event.target.name, value: event.target.value }));
+            setJobItem({...jobItem, [event.target.name]: event.target.value})
         }
     }
   return (
@@ -27,7 +23,7 @@ const JobForm = () => {
             <Form.Control
                 name = "jobGroup"
                 className = {validation.includes("jobGroup") ? "bg-danger bg-opacity-25" : " "}
-                value = {jobInfo.jobGroup || ""}
+                value = {jobItem.jobGroup || ""}
                 type = "text"
                 onChange = {handleChange}
                 maxLength = {30}/>
@@ -39,7 +35,7 @@ const JobForm = () => {
                 <Form.Control
                     name = "jobTitle"
                     className = {validation.includes("jobTitle") ? "bg-danger bg-opacity-25" : " "}
-                    value = {jobInfo.jobTitle || ""}
+                    value = {jobItem.jobTitle || ""}
                     type = "text"
                     onChange = {handleChange}
                     maxLength = {30}/>
@@ -49,7 +45,7 @@ const JobForm = () => {
                 <Form.Control
                     name = "company"
                     className = {validation.includes("company") ? "bg-danger bg-opacity-25" : " "}
-                    value = {jobInfo.company || ""}
+                    value = {jobItem.company || ""}
                     type = "text"
                     onChange = {handleChange}
                     maxLength = {30}/>
@@ -61,7 +57,7 @@ const JobForm = () => {
                     <DatePicker
                         style = {{height : '35px'}}
                         name = "start"
-                        value = {jobInfo.start || ""}
+                        value = {jobItem.start || ""}
                         onChange = {(event) => handleChange(event, "start")}
                         calendar = {persian}
                         locale = {persian_fa}
@@ -73,7 +69,7 @@ const JobForm = () => {
                     style = {{height : '35px'}}
                     name = "end"
                     calendar = {persian}
-                    value = {jobInfo.end || ""}
+                    value = {jobItem.end || ""}
                     onChange = {(event) => handleChange(event, "end")}
                     locale = {persian_fa}
                     calendarPosition = "bottom-right"/>

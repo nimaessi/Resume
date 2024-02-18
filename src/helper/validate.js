@@ -55,16 +55,18 @@ export const validateEducation = () => {
 }
 export const validateExperience = () => {
     var result = [];
-    const obj = store.getState().job;
-    if(obj.jobGroup.length > 30){
-        result.push("jobGroup");
-    }
-    if(obj.jobTitle.length > 30){
-        result.push("jobTitle");
-    }
-    if(obj.company.length > 30){
-        result.push("company");
-    }
+    const obj = store.getState().job.experience;
+    obj.map((item) => {
+        if(item.jobGroup.length > 30){
+            result.push("jobGroup");
+        }
+        if(item.jobTitle.length > 30 || item.jobTitle.length == 0){
+            result.push("jobTitle");
+        }
+        if(item.company.length > 30){
+            result.push("company");
+        }
+    })
     return result;
 }
 export const validateSkills  = () => {
