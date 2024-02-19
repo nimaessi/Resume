@@ -96,5 +96,30 @@ const getMaritalName = () => {
       return " ";
   }
 }
+const getGradeName = () => {
+  const grade = store.getState().education.grade;
+  switch(grade){
+    case "1":
+      return "دیپلم";
+    case "2":
+      return "کاردانی";
+    case "3":
+      return "کارشناسی";
+    case "4":
+      return "کارشناسی ارشد";
+    case "5":
+      return "دکترا";
+    default:
+      return "";
+  }
+}
  
-export { countEmptyValues, getPathTitle, notifyError, getCityName, getMilitaryName, getMaritalName };
+export { 
+  countEmptyValues, 
+  getPathTitle, 
+  notifyError, 
+  getCityName, 
+  getMilitaryName, 
+  getMaritalName,
+  getGradeName
+ };
