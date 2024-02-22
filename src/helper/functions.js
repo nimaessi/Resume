@@ -61,9 +61,13 @@ const notifyError = (message = " ") => toast.error( message,
   );
 
 const getCityName =  () => {
-  const cityId = store.getState().information.city; 
-  const city = iranCities.filter((city) => city.id == parseInt(cityId));
-  return city[0].name;
+  const cityId = store.getState().information.city;
+  if(parseInt(cityId) > 0){ 
+    const city = iranCities.filter((city) => city.id == parseInt(cityId));
+    return city[0].name;
+  }else{
+    return "";
+  }
 }
 
 const getMilitaryName = () => {
