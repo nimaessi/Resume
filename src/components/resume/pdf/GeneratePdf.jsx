@@ -10,16 +10,19 @@ import EduPDF from './EduPDF';
 import SkillPDF from './SkillPDF';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../module/ErrorComponent';
+import { useEffect } from 'react';
 
 const GeneratePdf = () => {
 
     const createPDF = () => {
         generatePDF(() => document.getElementById("content"), options);
     }
+    useEffect(() => {
+        createPDF();
+    },[]);
   return(
     <ErrorBoundary fallback={<ErrorComponent />}>
-        <button onClick = {()=> createPDF()}>pdf</button>
-        <Resume displayBtn = {false}>
+        <Resume>
             <div id = "content">
                 <TopPDF />
                 <Row>

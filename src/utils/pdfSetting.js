@@ -1,7 +1,7 @@
 import { Resolution, Margin } from 'react-to-pdf';
 const options = {
     // method can save or open
-    method: 'open',
+    method: 'save',
     resolution: Resolution.HIGH,
     page: {
        margin: Margin.MEDIUM,
