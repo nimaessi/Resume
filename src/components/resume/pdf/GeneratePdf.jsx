@@ -10,19 +10,30 @@ import EduPDF from './EduPDF';
 import SkillPDF from './SkillPDF';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../module/ErrorComponent';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Waiting from './Waiting';
 
 const GeneratePdf = () => {
+
+    const [waiting, setWaiting] = useState(true);
 
     const createPDF = () => {
         generatePDF(() => document.getElementById("content"), options);
     }
+
     useEffect(() => {
+        const timer = setTimeout(() => {
+            setWaiting(false);
+        }, 6000);
         createPDF();
+        return () => {
+            clearTimeout(timer);
+        }
     },[]);
   return(
     <ErrorBoundary fallback={<ErrorComponent />}>
         <Resume>
+        {waiting && <Waiting />}
             <div id = "content">
                 <TopPDF />
                 <Row>
