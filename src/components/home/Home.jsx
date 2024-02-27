@@ -1,7 +1,8 @@
 import { Button, Card, Container, FloatingLabel, Form } from "react-bootstrap";
 import "../../index.css";
 import * as Icon from 'react-bootstrap-icons';
-
+import { Link } from "react-router-dom";
+import { SIGNUP } from "../../routes/routeAddress";
 const Home = () => {
   return (
     <Container fluid className = "d-flex align-items-center justify-content-center vh-100 overflow-hidden">
@@ -19,7 +20,10 @@ const Home = () => {
             </FloatingLabel>
 
             <div className = "d-grid gap-2 mt-4">
-              <Button variant = "success" type = "submit">ادامه</Button>
+              <Button variant = "success" type = "submit">ورود</Button>
+            </div>
+            <div className = "d-grid gap-2 mt-4">
+              <Button variant = "danger" as = {Link} to = {SIGNUP}>ثبت نام</Button>
             </div>
           </Form>
           <div className = "d-grid gap-3 mt-5">

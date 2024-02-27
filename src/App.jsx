@@ -8,8 +8,20 @@ import Education from './components/resume/education/Education';
 import JobExperience from './components/resume/job-experience/JobExperience';
 import Skills from './components/resume/skills/Skills';
 import FurtherInformation from './components/resume/further-information/FurtherInformation';
-import { ADDITIONALINFO, BASICINFO, EDUCATION, GENERATEPDF, JOBEXPERIENCE, PATH, RESUME, SELECTSTEP, SKILLS } from './routes/routeAddress';
+import { 
+  ADDITIONALINFO, 
+  BASICINFO, 
+  EDUCATION, 
+  GENERATEPDF, 
+  JOBEXPERIENCE, 
+  PATH, 
+  RESUME, 
+  SELECTSTEP, 
+  SIGNUP, 
+  SKILLS 
+} from './routes/routeAddress';
 import GeneratePdf from './components/resume/pdf/GeneratePdf';
+import Signup from './components/signup/Signup';
 function App() {
 
   return (
@@ -25,6 +37,7 @@ function App() {
         <Route path = {SKILLS} element = {<Skills />} />
         <Route path = {ADDITIONALINFO} element = {<FurtherInformation />} />
         <Route path = {GENERATEPDF} element = {<GeneratePdf />} />
+        <Route path = {SIGNUP} element = {<Signup />} />
       </Route>
     </Routes>
    </BrowserRouter>
