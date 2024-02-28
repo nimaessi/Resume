@@ -11,6 +11,7 @@ const Resume = ({ children, displayBtn = true }) => {
     <Container className = "mt-4 bgColorWhite p-3 myBoxShadow">
       <ToastContainer className = "fw-bolder" />
       { children }
+      <ToastContainer />
     </Container>
     {displayBtn && <NextStep />}
   </>

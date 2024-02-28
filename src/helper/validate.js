@@ -1,5 +1,5 @@
 import store from "../app/store";
-import { BASICINFO, EDUCATION, JOBEXPERIENCE, SKILLS } from "../routes/routeAddress";
+import { BASICINFO, EDUCATION, JOBEXPERIENCE, PATH, SKILLS } from "../routes/routeAddress";
 
 export const validateBasicInfo = () => {
     var result = [];
@@ -74,6 +74,17 @@ export const validateSkills  = () => {
     const obj = store.getState().skills;
     if(obj.skill.length === 0){
         result.push("skill");
+    }
+    return result;
+}
+export const validateLogin = (value) => {
+    var result = [];
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!value.password){
+        result.push("password");
+    }
+    if(!emailRegex.test(value.email)){
+        result.push("email");
     }
     return result;
 }
