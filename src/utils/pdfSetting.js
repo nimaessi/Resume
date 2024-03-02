@@ -2,7 +2,7 @@ import { Resolution, Margin } from 'react-to-pdf';
 const options = {
     // method can save or open
     method: 'save',
-    resolution: Resolution.HIGH,
+    resolution: Resolution.NORMAL,
     page: {
        margin: Margin.MEDIUM,
         // default is 'A4' can be letter
