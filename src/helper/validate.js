@@ -88,6 +88,20 @@ export const validateLogin = (value) => {
     }
     return result;
 }
+export const validateSignup = (value) => {
+    var result = [];
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(value.email)){
+        result.push("email");
+    }
+    if(value.password.trim().length == 0 || value.passwordRepeat.trim().length == 0 ){
+        result.push("password");
+    }
+    if(value.password != value.passwordRepeat){
+        result.push("passwordRepeat");
+    }
+    return result;
+}
 
 export const runValidation = (routeName) => {
     var result;

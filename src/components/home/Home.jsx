@@ -1,4 +1,4 @@
-import { Alert, Button, Card, Container, FloatingLabel, Form } from "react-bootstrap";
+import { Alert, Button, FloatingLabel, Form } from "react-bootstrap";
 import "../../index.css";
 import * as Icon from 'react-bootstrap-icons';
 import { Link, useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ const Home = () => {
   const clickHandler = () => {
     const resValidate = validateLogin(formValue);
     dispatch(setValidate(resValidate));
-    resValidate.length == 0 ? navigate(SELECTSTEP): ""
+    resValidate.length == 0 ? navigate(SELECTSTEP): null
   }
   return (
    <CardContainer title = "ورود">
