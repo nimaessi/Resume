@@ -1,5 +1,4 @@
 {
-  "homepage": "https://nimaessi.github.io/Resume",
   "name": "resume-app",
   "private": true,
   "version": "0.0.0",
@@ -7,8 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "predeploy": "npm run build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -38,7 +36,6 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "gh-pages": "^6.1.1",
     "react-router-dom": "^6.17.0",
     "vite": "^4.4.5"
   }
